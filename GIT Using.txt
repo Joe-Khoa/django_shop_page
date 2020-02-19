@@ -1,0 +1,8 @@
+choose folder_:  right_click->git_bash_here
+copy( to git_clone : use https)
+	git clone https://github.com/Joe-Khoa/django_shop_page.git
+	
+check folder: git status
+__________________________________________
+	fit commit -m 
+	

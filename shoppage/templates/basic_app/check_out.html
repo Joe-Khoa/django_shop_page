@@ -1,0 +1,27 @@
+{% extends "basic_app/base.html" %}
+  {% load static %}
+  {% block body_block %}
+
+
+
+     <div class="main">
+
+        <div class="content d-flex justify-content-center">
+        	 <div class="login_panel">
+            	<h3>Proceed to check out</h3>
+            	<p>Sign in with the form below.</p>
+                	<form method="post" id="member">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                         <p class="note">If you forgot your passoword just enter your email and click <a href="{% url "password_reset" %}">here</a></p>
+                            <div  class="buttons">
+                              <div>
+                                <button class="grey">Sign In</button>
+                              </div>
+                            </div>
+                  </form>
+            </div>
+           <div class="clear"></div>
+        </div>
+     </div>
+  {% endblock %}

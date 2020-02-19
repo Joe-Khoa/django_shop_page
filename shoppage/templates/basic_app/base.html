@@ -1,0 +1,599 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load static %}
+{% load humanize %}
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Free Smart Store Website Template | Home :: w3layouts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- CSS -->
+<link href= "{% static "css/style.css" %}" rel="stylesheet" type="text/css" media="all"/>
+<link href= "{% static "css/menu.css" %}" rel="stylesheet" type="text/css" media="all"/>
+<!-- JS -->
+<script src=" {% static "js/jquery.min.js" %}"></script>
+<script src=" {% static "js/script.js" %}" type="text/javascript"></script>
+<script type="text/javascript" src=" {% static "js/move-top.js" %}"></script>
+<script type="text/javascript" src=" {% static "js/easing.js" %}"></script>
+<!-- Bootstrap -->
+
+  <!-- Css -->
+
+  <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %} ">
+
+  <!-- JS -->
+  <!-- <script src=" {% static "bootstrap/js/bootstrap.min.js" %}"></script> -->
+  <!-- <script src=" {% static "bootstrap/js/bootstrap.bundle.js" %}"></script>
+  <script src=" {% static "bootstrap/js/bootstrap.bundle.min.js" %}"></script> -->
+<!-- FontAwesome -->
+  <!-- online _ just for_testing -->
+<!-- <script src="https://use.fontawesome.com/dd982db6b4.js"></script> -->
+  <!-- embedded file -->
+<link rel="stylesheet" href="{% static "css/fonts/font-awesome.min.css" %} ">
+
+
+
+<link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="wrap">
+	<div class="header">
+		<div class="header_top">
+			<div class="logo">
+				<a href="{% url "basic_app:index" %}"><img src=" {% static "images/logo.png" %} " alt="" /></a>
+			</div>
+			  <div class="header_top_right">
+			    <div class="search_box">
+				    <form>
+				    	<input type="text" value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search for Products';}"><input type="submit" value="SEARCH">
+				    </form>
+			    </div>
+			    <div onclick="window.location='{% url 'basic_app:cart' %}'" class="shopping_cart">
+					<div class="cart">
+						<a href="{% url "basic_app:cart" %}" title="View my shopping cart" rel="nofollow">
+							<strong class="opencart"> </strong>
+								<span class="cart_title">Cart</span>
+                      {% if cart.items %}
+                        <span class="no_product">{{ cart.total_qty}} item(s)</span>
+                      {% else %}
+								        <span class="no_product">(empty)</span>
+                      {% endif %}
+							</a>
+						</div>
+			      </div>
+	    <div class="languages" title="language">
+	    	<div id="language" class="wrapper-dropdown" tabindex="1">EN
+						<strong class="opencart"> </strong>
+						<ul class="dropdown languges">
+							 <li>
+							 	<a href="#" title="Français">
+									<span><img src=" {% static "images/gb.png" %} " alt="en" width="26" height="26"></span><span class="lang">English</span>
+								</a>
+							 </li>
+								<li>
+									<a href="#" title="Français">
+										<span><img src=" {% static "images/au.png" %} " alt="fr" width="26" height="26"></span><span class="lang">Français</span>
+									</a>
+								</li>
+						<li>
+							<a href="#" title="Español">
+								<span><img src=" {% static "images/bm.png" %} " alt="es" width="26" height="26"></span><span class="lang">Español</span>
+							</a>
+						</li>
+								<li>
+									<a href="#" title="Deutsch">
+										<span><img src=" {% static "images/ck.png" %} " alt="de" width="26" height="26"></span><span class="lang">Deutsch</span>
+									</a>
+								</li>
+						<li>
+							<a href="#" title=" russian">
+								<span><img src=" {% static "images/cu.png" %} " alt=" ru" width="26" height="26"></span><span class="lang">Russian</span>
+							</a>
+						</li>
+				   </ul>
+		     </div>
+		     <script type="text/javascript">
+			function DropDown(el) {
+				this.dd = el;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents : function() {
+					var obj = this;
+
+					obj.dd.on('click', function(event){
+						$(this).toggleClass('active');
+						event.stopPropagation();
+					});
+				}
+			}
+
+			$(function() {
+
+				var dd = new DropDown( $('#language') );
+
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown').removeClass('active');
+				});
+
+			});
+
+		</script>
+		 </div>
+			<div class="currency" title="currency">
+					<div id="currency" class="wrapper-dropdown" tabindex="1">$
+						<strong class="opencart"> </strong>
+						<ul class="dropdown">
+							<li><a href="#"><span>$</span>Dollar</a></li>
+							<li><a href="#"><span>€</span>Euro</a></li>
+						</ul>
+					</div>
+					 <script type="text/javascript">
+			function DropDown(el) {
+				this.dd = el;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents : function() {
+					var obj = this;
+
+					obj.dd.on('click', function(event){
+						$(this).toggleClass('active');
+						event.stopPropagation();
+					});
+				}
+			}
+
+			$(function() {
+
+				var dd = new DropDown( $('#currency') );
+
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown').removeClass('active');
+				});
+
+			});
+
+		</script>
+   </div>
+		   <div class="login">
+		   	   <span><a href="{% url "login" %}">
+             {% if user.is_authenticated%}
+                <img   src=" {% static "images/users/logged_in.png" %} " alt="" title="login"/></a>
+              {% else %}
+                <img  style= "max-width:30px important; padding-top:0px important;" src=" {% static "images/login.png" %} " alt="" title="login"/></a>
+             {% endif %}
+           </span>
+
+		   </div>
+		 <!-- <div class="clear"></div> -->
+	 </div>
+	 <div class="clear"></div>
+ </div>
+  <div class="login_info" style="margin:-20px !important;">
+      <div class="d-flex flex-row-reverse" style="margin:-30px !important;">
+            <div class="mr-5 mb-4" style="width:100%; " >
+              {% if user.is_authenticated %}
+                 <p style=" width:370px; float:right !important" class="pt-1">{{user.username}} |
+                   <a href="{% url "logout"%}">logout</a>
+                   | <a href="{% url "password_change"%}">change password</a>
+                 </p>
+               {% else%}
+                  <div class="">
+                    <p style=" width:180px; float:right !important" class="pt-1"><a href='{% url "login"%}'>not yet login!</a> |
+                    <a href='{% url "sign_up"%}'>sign up</a></p>
+                  </div>
+
+               {% endif %}
+            </div>
+      </div>
+  </div>
+
+
+
+	<div class="h_menu">
+		<a id="touch-menu" class="mobile-menu" href="#">Menu</a>
+		<nav>
+		<ul class="menu list-unstyled">
+			<li><a href="{% url "basic_app:index" %}">HOME</a></li>
+
+			<li><a ">Categories</a>
+				<ul class="sub-menu list-unstyled sub-menu2 cate_menu_ul">
+				  <div class="navg-drop-main">
+						<div class="nav-drop nav-top-brand">
+              {% for cat_name in cat_names %}
+						       <li class=" li_type_name">
+                     <a class="" href="{% url 'basic_app:categories_sub' %}{{cat_name.id_url.url}}">
+                       {{cat_name.name}}
+                     </a>
+                   </li>
+              {% endfor%}
+						</div>
+					</div>
+				</ul></li>
+			<li><a href="{% url "basic_app:faqs" %}">Services</a>
+				<!-- <ul class="sub-menu list-unstyled sub-menu3">
+				  <div class="navg-drop-main">
+					<div class="nav-drop">
+						<li><a href="products.html">Product 4</a></li>
+						<li><a href="products.html">Product 5</a></li>
+						<li><a href="products.html">Product 6</a>
+
+						</li>
+					</div>
+					<div class="nav-drop">
+						<li><a href="products.html">Product 4</a></li>
+						<li><a href="products.html">Product 5</a></li>
+						<li><a href="products.html">Product 6</a>
+								</li>
+					</div>
+					<div class="nav-drop">
+						<li><a href="products.html">Product 4</a></li>
+						<li><a href="products.html">Product 5</a></li>
+						<li><a href="products.html">Product 6</a></li>
+					</div>
+					<div class="nav-drop">
+						<li><a href="products.html">Product 4</a></li>
+						<li><a href="products.html">Product 5</a></li>
+						<li><a href="products.html">Product 6</a></li>
+					</div>
+					<div class="clear"> </div>
+				 </div>
+			  </ul> -->
+      </li>
+			<li><a href="{% url "basic_app:about" %}">About</a></li>
+			<li><a href="{% url "basic_app:contact" %}">Delivery</a></li>
+			<li><a href="{% url "basic_app:faqs" %}">Faqs</a></li>
+			<li><a href="{% url "basic_app:contact" %}">CONTACT</a></li>
+			<div class="clear"> </div>
+		</ul>
+		</nav>
+		<script src=" {% static "js/menu.js" %}" type="text/javascript"></script>
+		</div>
+
+
+
+
+    {%block body_block%}
+      <!-- nothing here -->
+
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="footer">
+   	  <div class="wrapper">
+	     <div class="section group">
+				<div class="col_1_of_4 span_1_of_4">
+						<h4>Information</h4>
+						<ul>
+						<li><a href="{% url "basic_app:about" %}">About Us</a></li>
+						<li><a href="#">Customer Service</a></li>
+						<li><a href="#"><span>Advanced Search</span></a></li>
+						<li><a href="#">Orders and Returns</a></li>
+						<li><a href="#"><span>Contact Us</span></a></li>
+						</ul>
+					</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Why buy from us</h4>
+						<ul>
+						<li><a href="{% url "basic_app:about" %}">About Us</a></li>
+						<li><a href="faq.html">Customer Service</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="contact.html"><span>Site Map</span></a></li>
+						<li><a href="preview-2.html"><span>Search Terms</span></a></li>
+						</ul>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>My account</h4>
+						<ul>
+							<li><a href="{% url "login" %}">Sign In</a></li>
+							<li><a href="{% url "index" %}">View Cart</a></li>
+							<li><a href="{% url "index" %}">My Wishlist</a></li>
+							<li><a href="{% url "index" %}">Track My Order</a></li>
+							<li><a href="{% url "basic_app:contact" %}"Help</a></li>
+						</ul>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Contact</h4>
+						<ul>
+							<li><span>+91-123-456789</span></li>
+							<li><span>+00-123-000000</span></li>
+						</ul>
+						<div class="social-icons">
+							<h4>Follow Us</h4>
+					   		  <ul>
+							      <li class="facebook"><a href="https://www.facebook.com/" target="_blank"> </a></li>
+							      <li class="twitter"><a href="https://www.twitter.com/" target="_blank"> </a></li>
+							      <li class="googleplus"><a href="https://www.googleplus.com/" target="_blank"> </a></li>
+							      <li class="contact"><a href="{% url "basic_app:contact" %}" target="_blank"> </a></li>
+							      <div class="clear"></div>
+						     </ul>
+   	 					</div>
+				</div>
+			</div>
+			<div class="copy_right">
+				<p>&copy; 2013 Smart Store. All Rights Reserved | Design by <a href="http://w3layouts.com">W3Layouts</a> </p>
+		   </div>
+     </div>
+    </div>
+
+
+  <div class="show_cart_link" id="wrapper">
+    <div class="cart_link_modal" id="modal">
+      <i id="close" class="fa fa-times"></i>
+      <p> You have added
+        <b class="modalProdName text-success"> &nbsp </b>
+        to cart!</p>
+      <hr>
+      <a href="{% url "basic_app:cart"%}">Click here</a>
+      <p>to go to shopping cart.</p>
+    </div>
+  </div>
+
+
+    <script type="text/javascript">
+
+
+    			/*
+    			var defaults = {
+    	  			containerID: 'toTop', // fading element id
+    				containerHoverID: 'toTopHover', // fading element hover id
+    				scrollSpeed: 1200,
+    				easingType: 'linear'
+    	 		};
+    			*/
+
+    			$().UItoTop({ easingType: 'easeOutQuart' });
+
+    		});
+	</script>
+
+  <!-- MY Jquery 7.2.2020_khoa -->
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+        // formatNumber to currrency
+        function format_no_to_str(No){
+              if(No == 0){
+                return '000'
+              }else if(Math.floor(No/100)){ 	//abc 'a is ',a # 0
+                return String(No)
+              }
+              else if( Math.floor(No/10)){	//abc a = 0 && b # 0
+                return String('0'+No);
+              }
+              else {
+                return String("00"+No);
+              }
+        }
+
+        function thousand(Number){
+            arr = []
+            arr[5] = Math.floor(Number/Math.pow(10,5*3))
+            for (i = 4; i > 0; i--){
+                mod = Math.pow(10,3*(i+1))
+                div = Math.pow(10,3*i)
+                arr[i] = Math.floor((Number%mod)/div)
+                console.log("arr["+i+"]= "+arr[i])
+            }
+            arr[0] = Number%1000
+            console.log("arr["+0+"]= "+arr[0])
+            console.log("arr["+5+"]= "+arr[5])
+            return arr
+        }
+
+        function formatNumber(a){
+            arr = thousand(a)
+            Max = 0
+            for (i = 5;i>-1;i--){
+                if (arr[i] != 0){
+                    Max = i
+                    break
+                }
+            }
+            console.log('Max = '+Max)
+            currency_str = ''
+            for(i=Max-1;i>-1;i--){
+              arr[i] = format_no_to_str(arr[i])
+              currency_str =  currency_str+','+arr[i]
+            }
+            arr[Max] = Number(format_no_to_str(arr[Max]))
+            currency_str = arr[Max]+currency_str
+            return currency_str
+        }
+
+
+        //  END Function
+
+        // Add cart (1 product/a time)
+        $('.cart_button').click(function(){
+          var prod_id = $(this).attr('id')
+          console.log('id: '+prod_id)
+          console.log(prod_id)
+          $.ajax({
+                url: "{% url 'basic_app:cart' %}",
+                method:'POST',
+                dataType:'JSON',
+                data:{
+                  id:prod_id,
+                  qty:1,
+                  action:'add'
+                  },
+                success:function(response){
+                    if(response.success_){
+                      console.log(response.message_)
+                      $('.modalProdName').text(response.prod_name)
+                      $('.no_product').text(response.total_qty+' item(s)')
+                      console.log('qty: '+response.total_qty)
+                      $('#wrapper').show()
+                    }else{
+                      console.log(response.message_)
+                      console.log('req ajax failed!')
+                    }
+                },
+                error: function(err){
+                  console.log(err)
+                },
+            });
+
+          })
+
+            // DEll a product
+        $('.fa-trash-o').click(function(){
+            var id = $(this).parent().attr('id')
+            console.log(id)
+            $.ajax({
+                  url:"{% url 'basic_app:cart' %}",
+                  method: 'POST',
+                  dataType:'JSON',
+                  data:{
+                    'action':'delele_a_prod',
+                    'id':id
+                  },
+                  success: function(response){
+                      if(response.success){
+                        console.log(response.message)
+                        $('#item_id_to_del_'+response.id).remove()
+                        $('.cart_price_sum').text(formatNumber(response.total_price)+'₫')
+                        $('.cart_promotion_price_sum').text(formatNumber(response.total_promt_price)+'₫')
+                        $('.no_product').text(response.total_qty+' item(s)')
+                        if (response.cart_status =='empty' ){
+                            delete_all_cart()
+                            $('.no_product').text('(cart empty)')
+
+                        }
+                        console.log('test')
+                      }
+                      else{
+                        console.log(response.message)
+                        console.log('req ajax failed!')
+                      }
+                  },
+                  error: function(err){
+                    console.log(err)
+                  },
+            })
+        })
+            // DEll ALL product
+        $('.btn_remove_all_cart ').click(function(){
+              $.ajax({
+                url:"{% url 'basic_app:cart' %}",
+                method: 'POST',
+                dataType:'JSON',
+                data:{
+                  'action':'delele_all_prod',
+                },
+                  success: function(response){
+                    if(response.success){
+                      console.log(response.message)
+                      $('.no_product').text('(cart empty)')
+                      delete_all_cart()
+                  }
+                  else{
+                    console.log(response.message)
+                    console.log('req ajax failed!')
+                  }
+                },
+                error: function(err){
+                  console.log(err)
+                },
+              })
+        })
+        function delete_all_cart(){
+                $('.cart_item').remove()
+                $('.btn_remove_all_cart').remove()
+                $('#content').remove()
+                $('.main_container').append("<div class='jumbotron mt-4 jumbotron_empty_cart'><h5> No item in cart, please buy something <u><a class='text-primary' href='{% url 'basic_app:index' %}'> HomePage</a></u></h5></div>")
+        }
+            // UPDATE cart
+        $('.edit_prod_btn').click(function(){
+          var prod_id = $(this).attr('id')
+          var qty = $(this).siblings().val()
+          // console.log('id: '+prod_id)
+          // console.log('qty: '+qty)
+          $.ajax({
+                url: "{% url 'basic_app:cart' %}",
+                method:'POST',
+                dataType:'JSON',
+                data:{
+                  qty:qty,
+                  id:prod_id,
+                  action:'update'
+                  },
+                success:function(response){
+                    if(response.success_){
+                      console.log(response.message_)
+                      $('#product_quantity_input_'+response.id).text(response.qty)
+                        //  test_function
+                      console.log('cart_item_promotion_price_',response.item_total_promt_price)
+                      formatNumber(response.item_total_promt_price)
+                      $('#cart_item_promotion_price_'+response.id).text(formatNumber(Number(response.item_total_promt_price))+'₫')
+                      $('#cart_item_price_'+response.id).text(formatNumber(Number(response.item_total_price))+'₫')
+                      $('.cart_promotion_price_sum').text(formatNumber(Number(response.total_promt_price))+'₫')
+                      $('.cart_price_sum').text(formatNumber(Number(response.total_price))+'₫')
+                      $('.no_product').text(response.total_qty+' item(s)')
+
+                    }else{
+                      console.log(response.message_)
+                      console.log('req ajax failed!')
+                    }
+                },
+                error: function(err){
+                  console.log(err)
+                },
+            });
+
+        })
+
+
+
+
+    })
+  </script>
+
+
+  <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+  <link href= "{% static "css/flexslider.css" %}" rel='stylesheet' type='text/css' />
+  <script defer src=" {% static "js/jquery.flexslider.js" %}"></script>
+
+  <script type="text/javascript">
+			$(function(){
+			  SyntaxHighlighter.all();
+			});
+			$(window).load(function(){
+			  $('.flexslider').flexslider({
+				animation: "slide",
+				start: function(slider){
+				  $('body').removeClass('loading');
+				}
+			  });
+			});
+  </script>
+                  <!-- NEW SCRIPT Feb.7.2020_khoa -->
+
+</body>
+</html>

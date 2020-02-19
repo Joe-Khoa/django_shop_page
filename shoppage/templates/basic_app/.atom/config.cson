@@ -1,0 +1,14 @@
+"*":
+  "autocomplete-python":
+    useKite: false
+  core:
+    telemetryConsent: "limited"
+  editor:
+    fontSize: 26
+  "exception-reporting":
+    userId: "99c5ba49-36e2-44f2-8a09-75c81430cfa1"
+  "platformio-ide-terminal":
+    core:
+      shell: "C:\\Windows\\System32\\cmd.exe"
+  welcome:
+    showOnStartup: false

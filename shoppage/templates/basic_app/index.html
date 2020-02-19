@@ -1,0 +1,201 @@
+{% extends "basic_app/base.html" %}
+{% load humanize %}
+{% load static %}
+  {% block body_block %}
+
+    	<div class="header_bottom">
+    		<div class="header_bottom_left">
+    			<div class="section group">
+    				<div class="listview_1_of_2 images_1_of_2">
+    					<div class="listimg listimg_2_of_1">
+    						 <a href="{% url "basic_app:categories_sub" %}iphone-x"> <img src=" {% static "images/pic4.png" %} " alt="" /></a>
+    					</div>
+    				    <div class="text list_2_of_1">
+    						<h2>Iphone</h2>
+    						<p>Lorem ipsum dolor sit amet sed do eiusmod.</p>
+    						<div class="button"><span><a href="{% url "basic_app:categories_sub" %}iphone-x">Find an Iphone</a></span></div>
+    				   </div>
+    			   </div>
+    				<div class="listview_1_of_2 images_1_of_2">
+    					<div class="listimg listimg_2_of_1">
+    						  <a href="preview-5.html"><img src=" {% static "images/pic3.png" %} " alt="" / ></a>
+    					</div>
+    					<div class="text list_2_of_1">
+    						  <h2>Ipad</h2>
+    						  <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
+    						  <div class="button"><span><a href="{% url "basic_app:categories_sub" %}ipad-mini-4">Find an Ipad</a></span></div>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="section group">
+    				<div class="listview_1_of_2 images_1_of_2">
+    					<div class="listimg listimg_2_of_1">
+    						 <a href="preview-3.html"> <img src=" {% static "images/pic5.png"  %} " alt="" /></a>
+    					</div>
+    				    <div class="text list_2_of_1">
+    						<h2>Macbook</h2>
+    						<p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
+    						<div class="button"><span><a href="{% url "basic_app:categories_sub" %}macbook-pro-retina">Find a Mac</a></span></div>
+    				   </div>
+    			   </div>
+    				<div class="listview_1_of_2 images_1_of_2">
+    					<div class="listimg listimg_2_of_1">
+    						  <a href="preview-6.html"><img src=" {% static "images/pic1.png" %} " alt="" /></a>
+    					</div>
+    					<div class="text list_2_of_1">
+    						  <h2>Accessories</h2>
+    						  <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
+    						  <div class="button"><span><a href="{% url "basic_app:categories_sub" %}phu-kien">Find an Item</a></span></div>
+    					</div>
+    				</div>
+    			</div>
+    		  <div class="clear"></div>
+    		</div>
+    			 <div class="header_bottom_right_images">
+    		   <!-- FlexSlider -->
+                  <section class="slider">
+    				  <div class="flexslider">
+    					<ul class="slides">
+    						<li><img src=" {% static "images/1.jpg"  %} " alt=""/></li>
+    						<li><img src=" {% static "images/2.jpg"  %} " alt=""/></li>
+    						<li><img src=" {% static "images/3.jpg"  %} " alt=""/></li>
+    						<li><img src=" {% static "images/4.jpg"  %} " alt=""/></li>
+    				    </ul>
+    				  </div>
+    	      </section>
+    <!-- FlexSlider -->
+    	    </div>
+    	  <div class="clear"></div>
+      </div>
+     <div class="main">
+        <div class="content">
+        	<div class="content_top">
+        		<div class="heading">
+        		<h3><b > Feature Products</b></h3>
+        		</div>
+        		<div class="sort">
+        		<p>Sort by:
+        			<select>
+        				<option>Lowest Price</option>
+        				<option>Highest Price</option>
+        				<option>Lowest Price</option>
+        				<option>Lowest Price</option>
+        				<option>Lowest Price</option>
+        				<option>In Stock</option>
+        			</select>
+        		</p>
+        		</div>
+        		<div class="show">
+        		<p>Show:
+        			<select>
+        				<option>4</option>
+        				<option>8</option>
+        				<option>12</option>
+        				<option>16</option>
+        				<option>20</option>
+        				<option>In Stock</option>
+        			</select>
+        		</p>
+        		</div>
+        		<div class="page-no">
+        			<p>Result Pages:<ul>
+        				<li><a href="#">1</a></li>
+        				<li class="active"><a href="#">2</a></li>
+        				<li><a href="#">3</a></li>
+        				<li>[<a href="#"> Next>>></a >]</li>
+        				</ul></p>
+        		</div>
+        		<div class="clear"></div>
+        	</div>
+    	      <div class="section group">
+
+            {% for prod in featured_prods %}
+      				<div class="grid_1_of_4 images_1_of_4">
+      					 <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}"><img src=" {% get_static_prefix %}images/products-images/{{prod.image}}" /></a>
+      					 <h2>{{prod.name}}</h2>
+      					 <p>{{prod.detail}}</p>
+      					 <p><span class="strike">{{prod.price | floatformat:0 | intcomma }}₫</span><span class="price">{{prod.promotion_price| floatformat:0 | intcomma }}₫</span></p>
+      					  <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
+                    <span><img src=" {% static "images/cart.jpg"  %} " alt="" />
+                      <a class="cart-button">Add to Cart
+                      </a>
+                    </span>
+                  </div>
+      				     <div class="button"><span><a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}" class="details">Details</a></span></div>
+      				</div>
+            {% endfor %}
+
+
+
+    			</div>
+    			<div class="content_bottom">
+        		<div class="heading">
+        		<h3>New Products</h3>
+        		</div>
+        		<div class="sort">
+        		<p>Sort by:
+        			<select>
+        				<option>Lowest Price</option>
+        				<option>Highest Price</option>
+        				<option>Lowest Price</option>
+        				<option>Lowest Price</option>
+        				<option>Lowest Price</option>
+        				<option>In Stock</option>
+        			</select>
+        		</p>
+        		</div>
+        		<div class="show">
+        		<p>Show:
+        			<select>
+        				<option>4</option>
+        				<option>8</option>
+        				<option>12</option>
+        				<option>16</option>
+        				<option>20</option>
+        				<option>In Stock</option>
+        			</select>
+        		</p>
+        		</div>
+        		<div class="page-no">
+        			<p>Result Pages:<ul>
+        				<li><a href="#">1</a></li>
+        				<li class="active"><a href="#">2</a></li>
+        				<li><a href="#">3</a></li>
+        				<li>[<a href="#"> Next>>></a >]</li>
+        				</ul></p>
+        		</div>
+        		<div class="clear"></div>
+        	</div>
+    			<div class="section group">
+            {% for prod in new_prods %}
+              <div class="grid_1_of_4 images_1_of_4">
+      					 <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}"><img src=" {% get_static_prefix %}images/products-images/{{prod.image}}" alt="" /></a>
+      					 <div class="discount">
+      					 <span class="percentage">?%</span>
+      					</div>
+      					 <h2>{{prod.name}} </h2>
+      					 <p><span class="strike">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                   <span class="price">{{prod.price|floatformat:0 | intcomma }}₫</span></p>
+                   <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
+                     <span><img src=" {% static "images/cart.jpg"  %} " alt="" />
+                       <a class="cart-button">Add to Cart
+                       </a>
+                     </span>
+                   </div>
+      				     <div class="button"><span><a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}" class="details">Details</a></span></div>
+      				</div>
+            {% endfor%}
+    			</div>
+        </div>
+     </div>
+
+
+     <!-- {<script type="text/javascript">
+       (document).ready(function(){
+        ('.data_button .cart-button').click(function(){
+        alert('abcd')
+        });
+
+     </script>} -->
+
+  {% endblock %}

@@ -9,7 +9,7 @@ from django.contrib.auth.forms import (AuthenticationForm,
                                     UserCreationForm)
 
 from django.contrib.auth import views as auth_views
-import json
+# import json
     # generate token
 from django.utils.crypto import get_random_string
 import uuid
@@ -377,9 +377,17 @@ def checkout_mail_sent(request):
 def checkout_confirm(request,token):
     # token = str(token[0])
     context = {}
-    # pprint('token : '+token)
-    # token_session =  request.session['token']
-    if token: # == token_session:
+    token_flag = 0
+    list_token = Bills.objects.values('token')
+    pprint(list_token)
+    token_dict = {'token':token}
+
+
+    if token_dict in list_token:
+        token_flag = 1
+        print('token : ',token_dict['token'])
+
+    if token_flag: # == token_session:
         Bill = Bills.objects.get(token = token)
         Bill.status = 1
         Bill.save()
@@ -401,6 +409,7 @@ def checkout_confirm(request,token):
         return render(request,'basic_app/checkout_confirm.html',context)
 
 def checkout(request):
+
     form = Customers_form()
     context = {}
     bills = {}

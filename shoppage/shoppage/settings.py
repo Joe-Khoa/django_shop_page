@@ -43,10 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'basic_app',
-    'clear_cache',
+    # 'clear_cache',
     'django.contrib.humanize',
-    'bootstrap',
-    'fontawesome',
+    # 'bootstrap',
+    # 'fontawesome',
 ]
 
 MIDDLEWARE = [
@@ -89,7 +89,8 @@ DATABASES = {
         'OPTIONS': {
             'read_default_file': '/path/to/my.cnf',
         },
-        'NAME': 'shop_page_update_customer',
+        #   'NAME': 'shop_page_update_customer',
+        'NAME': 'shoppage',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '',   # Or an IP Address that your DB is hosted on

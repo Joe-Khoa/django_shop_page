@@ -48,18 +48,22 @@
         					 <a href="{% url 'basic_app:detail_sub'%}{{prod.id_url.url}}"><img src=" {% get_static_prefix %}images/products-images/{{prod.image}}" alt="" /></a>
         					 <h2>{{prod.name}} </h2>
         					 <p>{{prod.detail}}</p>
+                   <hr>
                      {% if prod.promotion_price %}
             					 <p>
                          <span class="strike">{{prod.price|floatformat:0 | intcomma }}₫</span>
                          <span class="price">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
                        </p>
                       {% else %}
+                      <p>
                         <span class="price">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                      </p>
                       {% endif %}
+                    <hr>
 
                       <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
                         <span>
-                          <img src=" {% static "images/cart.jpg"  %} " alt="" />
+                          <!-- <img src=" {% static "images/cart.jpg"  %} " alt="" /> -->
                           <a class="cart-button">Add to Cart</a>
                         </span>
                       </div>        				     <div class="button"><span><a href="{% url 'basic_app:detail_sub'%}{{prod.id_url.url}}" class="details">Details</a></span></div>
@@ -115,6 +119,7 @@
               {% endif%}
     					 <h2>{{prod.name}}</h2>
                <p>{{prod.detail}}</p>
+               <hr>
     					 <p>
                   {% if prod.promotion_price %}
                      <span class="strike">{{prod.price|floatformat:0 | intcomma }}₫</span>
@@ -123,8 +128,10 @@
                     <span class="price">{{prod.price|floatformat:0 | intcomma}}₫</span>
                   {% endif %}
                </p>
+               <hr>
                <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
-                 <span><img src=" {% static "images/cart.jpg"  %} " alt="" />
+                 <span>
+                   <!-- <img src=" {% static "images/cart.jpg"  %} " alt="" /> -->
                    <a class="cart-button">Add to Cart
                    </a>
                  </span>

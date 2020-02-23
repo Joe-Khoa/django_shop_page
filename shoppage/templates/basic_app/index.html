@@ -13,7 +13,7 @@
     				    <div class="text list_2_of_1">
     						<h2>Iphone</h2>
     						<p>Lorem ipsum dolor sit amet sed do eiusmod.</p>
-    						<div class="button"><span><a href="{% url "basic_app:categories_sub" %}iphone-x">Find an Iphone</a></span></div>
+    						<div class="button"><span><a href="{% url "basic_app:categories_sub" %}iphone-x">Iphone</a></span></div>
     				   </div>
     			   </div>
     				<div class="listview_1_of_2 images_1_of_2">
@@ -23,7 +23,7 @@
     					<div class="text list_2_of_1">
     						  <h2>Ipad</h2>
     						  <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-    						  <div class="button"><span><a href="{% url "basic_app:categories_sub" %}ipad-mini-4">Find an Ipad</a></span></div>
+    						  <div class="button"><span><a href="{% url "basic_app:categories_sub" %}ipad-mini-4">Ipad</a></span></div>
     					</div>
     				</div>
     			</div>
@@ -35,7 +35,7 @@
     				    <div class="text list_2_of_1">
     						<h2>Macbook</h2>
     						<p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-    						<div class="button"><span><a href="{% url "basic_app:categories_sub" %}macbook-pro-retina">Find a Mac</a></span></div>
+    						<div class="button"><span><a href="{% url "basic_app:categories_sub" %}macbook-pro-retina"> Mac</a></span></div>
     				   </div>
     			   </div>
     				<div class="listview_1_of_2 images_1_of_2">
@@ -45,7 +45,7 @@
     					<div class="text list_2_of_1">
     						  <h2>Accessories</h2>
     						  <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-    						  <div class="button"><span><a href="{% url "basic_app:categories_sub" %}phu-kien">Find an Item</a></span></div>
+    						  <div class="button"><span><a href="{% url "basic_app:categories_sub" %}phu-kien">Item</a></span></div>
     					</div>
     				</div>
     			</div>
@@ -113,15 +113,31 @@
       				<div class="grid_1_of_4 images_1_of_4">
       					 <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}"><img src=" {% get_static_prefix %}images/products-images/{{prod.image}}" /></a>
       					 <h2>{{prod.name}}</h2>
-      					 <p>{{prod.detail}}</p>
-      					 <p><span class="strike">{{prod.price | floatformat:0 | intcomma }}₫</span><span class="price">{{prod.promotion_price| floatformat:0 | intcomma }}₫</span></p>
-      					  <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
-                    <span><img src=" {% static "images/cart.jpg"  %} " alt="" />
-                      <a class="cart-button">Add to Cart
-                      </a>
-                    </span>
-                  </div>
-      				     <div class="button"><span><a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}" class="details">Details</a></span></div>
+      					 {{prod.detail}}
+                 <hr>
+                 <p class="col-12 row">
+                       {% if prod.promotion_price %}
+                           <span class="strike col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                           <span class="price col-12">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
+                        {% else %}
+                            <span class="price col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                        {% endif %}
+                  </p>
+                  <hr>
+
+
+          					  <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
+                        <span>
+                          <!-- <img src=" {% static "images/cart.jpg"  %} " alt="" /> -->
+                          <a class="cart-button btn btn-primary ">Add to Cart
+                          </a>
+                        </span>
+                      </div>
+          				     <div class="button">
+                         <span>
+                           <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}" class="details">Details</a>
+                         </span>
+                       </div>
       				</div>
             {% endfor %}
 
@@ -174,10 +190,21 @@
       					 <span class="percentage">?%</span>
       					</div>
       					 <h2>{{prod.name}} </h2>
-      					 <p><span class="strike">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                   <span class="price">{{prod.price|floatformat:0 | intcomma }}₫</span></p>
+                 {{prod.detail}}
+                 <hr>
+
+                 <p class="col-12 row">
+                       {% if prod.promotion_price %}
+                           <span class="strike col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                           <span class="price col-12">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
+                        {% else %}
+                            <span class="price col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                        {% endif %}
+                  </p>
+                  <hr>
                    <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
-                     <span><img src=" {% static "images/cart.jpg"  %} " alt="" />
+                     <span>
+                       <!-- <img src=" {% static "images/cart.jpg"  %} " alt="" /> -->
                        <a class="cart-button">Add to Cart
                        </a>
                      </span>

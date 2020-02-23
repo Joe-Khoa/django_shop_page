@@ -409,7 +409,7 @@ def checkout_confirm(request,token):
         return render(request,'basic_app/checkout_confirm.html',context)
 
 def checkout(request):
-
+    success = False
     form = Customers_form()
     context = {}
     bills = {}
@@ -476,7 +476,9 @@ def checkout(request):
             html_message = render_to_string('mail_template.html',{'token':token})
             plain_message = strip_tags(html_message)
             mail.send_mail(subject,plain_message,from_mail,[email],html_message=html_message)
+            success = True
             context = {
+                        'success' : success,
                         'email':email,
                         'cart': get_cart_session(request),
                         'cat_names':get_hearder_footer_data()['prod_type'],
@@ -486,6 +488,7 @@ def checkout(request):
     else:
         pass
     context = {
+                'success' : success,
                 'form':form,
                 'cart': get_cart_session(request),
                 'cat_names':get_hearder_footer_data()['prod_type'],

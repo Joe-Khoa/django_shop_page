@@ -2,8 +2,11 @@
   {% load static %}
   {% block body_block %}
 
-
-
+  {% if success %}
+        <div class="alert alert-success m-4 p-4" role="alert">
+          success, please check mail to confirm order!
+        </div>
+  {% endif %}
      <div class="main">
 
         <div class="content d-flex justify-content-center">
@@ -13,7 +16,7 @@
                 	<form method="post" id="member">
                     {% csrf_token %}
                     {{form.as_p}}
-                         <p class="note">If you forgot your passoword just enter your email and click <a href="{% url "password_reset" %}">here</a></p>
+                         <p class="note">If you forgot your password just enter your email and click <a href="{% url "password_reset" %}">here</a></p>
                             <div  class="buttons">
                               <div>
                                 <button class="grey">Sign In</button>

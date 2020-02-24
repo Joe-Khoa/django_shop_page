@@ -90,7 +90,7 @@ DATABASES = {
             'read_default_file': '/path/to/my.cnf',
         },
         #   'NAME': 'shop_page_update_customer',
-        'NAME': 'shoppage',
+        'NAME': 'shop_page',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '',   # Or an IP Address that your DB is hosted on

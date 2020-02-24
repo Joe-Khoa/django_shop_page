@@ -11,9 +11,9 @@
     						 <a href="{% url "basic_app:categories_sub" %}iphone-x"> <img src=" {% static "images/pic4.png" %} " alt="" /></a>
     					</div>
     				    <div class="text list_2_of_1">
-    						<h2>Iphone</h2>
+    						<h2><a href="{% url "basic_app:categories_sub" %}iphone-x">Iphone</a></h2>
     						<p>Lorem ipsum dolor sit amet sed do eiusmod.</p>
-    						<div class="button"><span><a href="{% url "basic_app:categories_sub" %}iphone-x">Iphone</a></span></div>
+    						<!-- <div class="button"><span><a href="{% url "basic_app:categories_sub" %}iphone-x">Iphone</a></span></div> -->
     				   </div>
     			   </div>
     				<div class="listview_1_of_2 images_1_of_2">
@@ -21,9 +21,9 @@
     						  <a href="preview-5.html"><img src=" {% static "images/pic3.png" %} " alt="" / ></a>
     					</div>
     					<div class="text list_2_of_1">
-    						  <h2>Ipad</h2>
+    						  <h2><a href="{% url "basic_app:categories_sub" %}ipad-mini-4">Ipad</a></h2>
     						  <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-    						  <div class="button"><span><a href="{% url "basic_app:categories_sub" %}ipad-mini-4">Ipad</a></span></div>
+    						  <!-- <div class="button"><span><a href="{% url "basic_app:categories_sub" %}ipad-mini-4">Ipad</a></span></div> -->
     					</div>
     				</div>
     			</div>
@@ -33,9 +33,9 @@
     						 <a href="preview-3.html"> <img src=" {% static "images/pic5.png"  %} " alt="" /></a>
     					</div>
     				    <div class="text list_2_of_1">
-    						<h2>Macbook</h2>
+    						<h2><a href="{% url "basic_app:categories_sub" %}macbook-pro-retina">Macbook</a></h2>
     						<p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-    						<div class="button"><span><a href="{% url "basic_app:categories_sub" %}macbook-pro-retina"> Mac</a></span></div>
+    						<!-- <div class="button"><span><a href="{% url "basic_app:categories_sub" %}macbook-pro-retina"> Mac</a></span></div> -->
     				   </div>
     			   </div>
     				<div class="listview_1_of_2 images_1_of_2">
@@ -43,9 +43,9 @@
     						  <a href="preview-6.html"><img src=" {% static "images/pic1.png" %} " alt="" /></a>
     					</div>
     					<div class="text list_2_of_1">
-    						  <h2>Accessories</h2>
+    						  <h2 class="Accessories"><a href="{% url "basic_app:categories_sub" %}phu-kien">Accs</a></h2>
     						  <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-    						  <div class="button"><span><a href="{% url "basic_app:categories_sub" %}phu-kien">Item</a></span></div>
+    						  <!-- <div class="button"><span><a href="{% url "basic_app:categories_sub" %}phu-kien">Item</a></span></div> -->
     					</div>
     				</div>
     			</div>
@@ -112,10 +112,16 @@
             {% for prod in featured_prods %}
       				<div class="grid_1_of_4 images_1_of_4">
       					 <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}"><img src=" {% get_static_prefix %}images/products-images/{{prod.image}}" /></a>
-      					 <h2>{{prod.name}}</h2>
-      					 {{prod.detail}}
+      					 <div  class="title" href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">
+                   <div class="">
+                     <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">{{prod.name}}</a>
+                   </div>
+                 </div>
+      					 <!-- <div class="description_text">
+                   {{prod.detail}}
+                 </div> -->
                  <hr>
-                 <p class="col-12 row">
+                 <p class="col-12 row price">
                        {% if prod.promotion_price %}
                            <span class="strike col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
                            <span class="price col-12">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
@@ -184,33 +190,49 @@
         	</div>
     			<div class="section group">
             {% for prod in new_prods %}
-              <div class="grid_1_of_4 images_1_of_4">
-      					 <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}"><img src=" {% get_static_prefix %}images/products-images/{{prod.image}}" alt="" /></a>
-      					 <div class="discount">
-      					 <span class="percentage">?%</span>
-      					</div>
-      					 <h2>{{prod.name}} </h2>
-                 {{prod.detail}}
-                 <hr>
 
-                 <p class="col-12 row">
-                       {% if prod.promotion_price %}
-                           <span class="strike col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                           <span class="price col-12">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
-                        {% else %}
-                            <span class="price col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                        {% endif %}
-                  </p>
-                  <hr>
-                   <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
-                     <span>
-                       <!-- <img src=" {% static "images/cart.jpg"  %} " alt="" /> -->
-                       <a class="cart-button">Add to Cart
-                       </a>
-                     </span>
-                   </div>
-      				     <div class="button"><span><a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}" class="details">Details</a></span></div>
-      				</div>
+                  <div class="grid_1_of_4 images_1_of_4">
+                     <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}"><img src=" {% get_static_prefix %}images/products-images/{{prod.image}}" /></a>
+                     <div class="discount">
+                     <span class="percentage">?%</span>
+                    </div>
+                     <div  class="title" href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">
+                       <div class="">
+                         <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">{{prod.name}}</a>
+                       </div>
+                     </div>
+                     <!-- <div class="description_text">
+                       {{prod.detail}}
+                     </div> -->
+                     <hr>
+                     <p class="col-12 row price">
+                           {% if prod.promotion_price %}
+                               <span class="strike col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                               <span class="price col-12">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
+                            {% else %}
+                                <span class="price col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                            {% endif %}
+                      </p>
+                      <hr>
+
+
+                          <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
+                            <span>
+                              <!-- <img src=" {% static "images/cart.jpg"  %} " alt="" /> -->
+                              <a class="cart-button btn btn-primary ">Add to Cart
+                              </a>
+                            </span>
+                          </div>
+                           <div class="button">
+                             <span>
+                               <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}" class="details">Details</a>
+                             </span>
+                           </div>
+                  </div>
+
+
+
+
             {% endfor%}
     			</div>
         </div>

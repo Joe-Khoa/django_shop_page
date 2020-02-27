@@ -144,7 +144,7 @@ STATIC_URL = '/static/'
 # STATICFILES_DIRS = [STATIC_DIR,]
 STATICFILES_DIRS =[STATIC_DIR,]
 
-STATIC_ROOT '/home/khoaphamdev/django_shop_page/shoppage/static'
+STATIC_ROOT  = '/home/khoaphamdev/django_shop_page/shoppage/static'
 #media
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'

@@ -144,6 +144,7 @@ STATIC_URL = '/static/'
 # STATICFILES_DIRS = [STATIC_DIR,]
 STATICFILES_DIRS =[STATIC_DIR,]
 
+STATIC_ROOT '/home/khoaphamdev/django_shop_page/shoppage/static'
 #media
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
@@ -159,10 +160,12 @@ EMAIL_HOST_USER = 'bluenight0104@gmail.com'
 EMAIL_HOST_PASSWORD = 'latelyyou'
 EMAIL_USE_TLS = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+
 # DEFAULT_FROM_EMAIL ='bluenight0105@gmail.com'
 
     # CUSTOM FILE settings.py
-try:
-    from  shoppage.local_settings import *
-except ImportError:
-    pass
+# try:
+#     from  shoppage.local_settings import *
+# except ImportError:
+#     pass

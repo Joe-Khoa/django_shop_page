@@ -30,7 +30,8 @@ SECRET_KEY = '8q0ru!x=&mz#^w3am9&r5gwt*d+&yqv9u=y@xu+h=y^*pnc6ak'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['khoaphamdev.pythonanywhere.com']
 
 
 # Application definition

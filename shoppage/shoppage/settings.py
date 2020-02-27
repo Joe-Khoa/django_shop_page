@@ -90,11 +90,11 @@ DATABASES = {
             'read_default_file': '/path/to/my.cnf',
         },
         #   'NAME': 'shop_page_update_customer',
-        'NAME': 'shop_page',
-        'USER': 'root',
+        'NAME': 'khoaphamdev$shoppage',
+        'USER': 'khoaphamdev',
         'PASSWORD': '',
-        'HOST': '',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'HOST': 'khoaphamdev.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
+        # 'PORT': '',
     }
 }
 # [client]

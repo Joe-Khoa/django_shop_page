@@ -181,18 +181,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	 </div>
 	 <div class="clear"></div>
  </div>
-  <div class="login_info" style="margin:-20px !important;">
+  <div class="login_info" >
       <div class="d-flex flex-row-reverse" style="margin:-30px !important;">
-            <div class="mr-5 mb-4" style="width:100%; " >
+            <div class="mr-5 mb-4" >
               {% if user.is_authenticated %}
-                 <p style=" width:370px; float:right !important" class="pt-1">{{user.username}} |
+                 <div id="login_text" >{{user.username}} |
                    <a href="{% url "logout"%}">logout</a>
                    | <a href="{% url "password_change"%}">change password</a>
-                 </p>
+                 </div>
                {% else%}
-                  <div class="">
-                    <p style=" width:180px; float:right !important" class="pt-1"><a href='{% url "login"%}'>not yet login!</a> |
-                    <a href='{% url "sign_up"%}'>sign up</a></p>
+                  <div class = "logout_text">
+                      <a href='{% url "login"%}'>not yet login!</a> |
+                      <a href='{% url "sign_up"%}'>sign up</a>
                   </div>
 
                {% endif %}

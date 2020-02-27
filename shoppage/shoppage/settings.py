@@ -31,7 +31,7 @@ SECRET_KEY = '8q0ru!x=&mz#^w3am9&r5gwt*d+&yqv9u=y@xu+h=y^*pnc6ak'
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['khoaphamdev.pythonanywhere.com']
+ALLOWED_HOSTS = ['khoaphamdev.pythonanywhere.com','localhost']
 
 
 # Application definition
@@ -84,6 +84,22 @@ WSGI_APPLICATION = 'shoppage.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#             'read_default_file': '/path/to/my.cnf',
+#         },
+#         #   'NAME': 'shop_page_update_customer',
+#         'NAME': 'khoaphamdev$shoppage',
+#         'USER': 'khoaphamdev',
+#         'PASSWORD': 'shop_page',
+#         'HOST': 'khoaphamdev.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
+#         # 'PORT': '',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -91,13 +107,24 @@ DATABASES = {
             'read_default_file': '/path/to/my.cnf',
         },
         #   'NAME': 'shop_page_update_customer',
-        'NAME': 'khoaphamdev$shoppage',
-        'USER': 'khoaphamdev',
-        'PASSWORD': 'shop_page',
-        'HOST': 'khoaphamdev.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
-        # 'PORT': '',
+        'NAME': 'shop_page',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 # [client]
 # database = NAME
 # user = USER

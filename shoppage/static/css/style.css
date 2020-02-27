@@ -154,7 +154,6 @@ body{
 	margin-left:10px;
 	width:60px;
 	height: 38px;
-	display: block;
 	border: 1px solid #CECECE;
 	text-align: center;
 	-webkit-box-sizing: border-box;
@@ -163,7 +162,7 @@ body{
 	background: url(../images/gradient_light-1.png) 0 0 repeat-x;
 }
 .login span a img{
-	padding-top:8px;
+	padding-top: 4px;
 }
 /*** Login ***/
 .register_account h3,.login_panel h3{
@@ -3015,6 +3014,24 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 }
 
 /* ______________________ NEW CUSTOM STYLE_KHOA_________________________ */
+
+.logout_text {
+	width: 180px ;
+	float: right ;
+	font-size: 10px ;
+}
+.logout_text a{
+	font-size: 10px;
+}
+
+#login_text {
+	z-index: 9999;
+	width: 370px !important;
+	float: right !important;
+	font-size: 15px !important;
+}
+
+
 .search_button{
 	height: auto !important;
 	margin:0px !important;
@@ -3025,6 +3042,7 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 	height: 270px;
 	overflow: auto;
 }
+
 .grid_1_of_4 .price{
 	height: 65px;
 }
@@ -3033,17 +3051,20 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 	height: 194px;
 	width: auto;
 }
+
 .grid_1_of_4 .title div a{
 	vertical-align: middle !important;
 	color: #CC3636;
 	width:100%;
 }
+
 .grid_1_of_4 .title div{
 	height: 100%;
   display: table-cell;
 	vertical-align: middle!important;
 	width: 100%;
 }
+
 .grid_1_of_4 .title{
   display: table;
 	height: 100%;

@@ -391,7 +391,7 @@ def checkout_confirm(request,token):
         Bill = Bills.objects.get(token = token)
         Bill.status = 1
         Bill.save()
-        request.session['cart_'] = {}
+        delete_all_product(request)
         context = {
                     'confirm': ' your order is confirmed',
                     'thank_you': 'Thank you for shopping',

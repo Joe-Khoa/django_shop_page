@@ -92,7 +92,7 @@ DATABASES = {
         #   'NAME': 'shop_page_update_customer',
         'NAME': 'khoaphamdev$shoppage',
         'USER': 'khoaphamdev',
-        'PASSWORD': '',
+        'PASSWORD': 'shop_page',
         'HOST': 'khoaphamdev.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
         # 'PORT': '',
     }

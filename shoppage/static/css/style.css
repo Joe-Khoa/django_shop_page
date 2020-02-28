@@ -1603,6 +1603,33 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 }
 /**** Responsive Layout ****/
 
+@media only screen and (max-width: 3000px) {
+	.header_top_right {
+		width: 75% !important;
+	}
+	.logo {
+		width: 25% !important;
+	}
+	.sort, .show {
+		width: 20%;
+	}
+	.wrap {
+		width: 84%;
+	}
+	.wrapper-dropdown {
+		width:55px;
+		padding:0 0 0 7px;
+		margin-left: 5px;
+	}
+	.login {
+		width: 53px;
+		margin-left: 5px;
+	}
+	.shopping_cart {
+		width:230px;
+	}
+}
+
 @media only screen and (max-width: 1440px) {
 	.header_top_right {
 		width: 75% !important;
@@ -1626,7 +1653,7 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 		margin-left: 5px;
 	}
 	.shopping_cart {
-		width:190px;
+		width:185px;
 	}
 }
 @media only screen and (max-width: 1366px) {
@@ -1669,6 +1696,18 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 	.images_1_of_4 .button a.cart-button {
 		padding: 7px 5px 7px 5px;
 	}
+	.wrapper-dropdown {
+		width:49px;
+		padding:0 0 0 5px;
+		margin-left: 5px;
+	}
+	.login {
+		width: 45px;
+		margin-left: 5px;
+	}
+	.shopping_cart {
+		width:185px;
+	}
 }
 @media only screen and (max-width:1024px) {
 	.wrap{
@@ -1679,18 +1718,33 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 		width: 143px;
     }
     .shopping_cart {
-    	width:170px;
+    	width:168px !important;
     }
     .shopping_cart,.currencies, .languages,.login{
     	margin-left:5px;
     }
     .wrapper-dropdown {
-    	width:50px;
+    	width:48px;
     	padding:0 0 0 5px;
     }
-		.login{
-
+		.login_info{
+			/* margin-top: 0px !important; */
+			height: 20px !important;
+			/* margin-bottom: 0px !important; */
 		}
+		.login_info div{
+			margin-bottom: 20px !important;
+			padding: 0px;
+			float: right !important;
+		}
+		.login_info div div{
+			float: right !important;
+			margin-right: 0px !important;
+		}
+		.logout_text{
+			margin-bottom: 0px !important;
+		}
+
     .list_2_of_1 .button a {
     	padding:5px 10px;
     }
@@ -1834,6 +1888,9 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 	.search_box form input[type="text"] {
 		width: 183px;
     }
+		.cart{
+			padding-left: 10px !important;
+		}
     .shopping_cart {
     	width:180px;
     }
@@ -1850,6 +1907,22 @@ ul.sub-menu.list-unstyled.sub-menu3 {
     	margin-left:5px;
     	margin-top:5px;
     }
+
+		.login_info{
+			margin-top: -25px !important;
+			height: 20px !important;
+			margin-bottom: 0px !important;
+		}
+		.login_info div{
+			/* height: 50% !important; */
+			margin: 0px !important;
+		}
+		.login_info div div{
+			height: 10px !important;
+		}
+
+
+
     .list_2_of_1 .button a {
     	padding:5px 10px;
     }
@@ -2102,7 +2175,14 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 	.wrapper-dropdown,.login {
 		margin-top: 15px;
 		width: 55px;
+		margin-top: 17px;
 	}
+	.login_info div{
+		margin-top: 15px;
+		/* margin-bottom: -30px; */
+		height: 10px !important;
+	}
+
 	.logo {
 		width: 35% !important;
 	}
@@ -2195,6 +2275,20 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 	.register_account form input[type="text"].number {
 		width: 66%;
 	}
+
+	.login_info{
+		margin-top: -5px !important;
+		height: 30px !important;
+		margin-bottom: 0px !important;
+
+	}
+	.login_info div{
+		/* height: 50% !important; */
+		margin: 0px !important;
+	}
+
+
+
 }
 @media only screen and (max-width: 671px) {
 	ul.menu.list-unstyled li a {
@@ -2235,9 +2329,12 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 		width: 48px;
 		margin-top: 17px;
 	}
-	/* .shopping_cart{
-		margin-right: 50px;
-	} */
+
+
+
+
+
+
 
 }
 @media only screen and (max-width: 640px) {
@@ -2406,16 +2503,16 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 	}
 
 	.wrapper-dropdown{
-		margin-left:5px;
-		width:53px;
+		margin-left:4px;
+		width:49px;
 		margin-top: 0px;
 		margin-top: 17px;
 
 	}
  .login{
 	 	margin-top: 0px;
-		margin-left:5px;
-		width: 48px;
+		margin-left:4px;
+		width: 47px;
 		margin-top: 17px;
 	}
 
@@ -2518,6 +2615,15 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 }
 
 @media only screen and (max-width: 595px) {
+	.no_product{
+		font-size:10px !important;
+	}
+	.cart {
+		padding-left: 10px !important;
+	}
+	.cart_title{
+		font-size: 10px !important;
+	}
 	.wrapper-dropdown{
 	 margin-left:5px;
 	 margin-top:15px;
@@ -2542,6 +2648,21 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 		display: none;
 	}
 /*** Header ****/
+
+	.wrapper-dropdown{
+		margin-left:4px;
+		width:47px;
+		margin-top: 0px;
+		margin-top: 17px;
+
+	}
+ .login{
+	 	margin-top: 0px;
+		margin-left:4px;
+		width: 45px;
+		margin-top: 17px;
+	}
+
 	.search_box form input[type="text"] {
 		width:78.5%;
     }
@@ -2787,16 +2908,22 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 
 
 @media only screen and (max-width: 585px) {
+	.shopping_cart{
+		margin-left: 0px !important;
+		width: 120px !important;
+	}
+	.cart_title{
+		display: none;
+	}
 	.wrapper-dropdown{
-	 margin-left:5px;
-	 margin-top:15px;
-	 width:50px;
+	 margin-left:3px;
+	 margin-top:17px;
+	 width:45px;
  }
  .login{
-	 margin-left:5px;
-	 margin-top:15px;
-	 width:48px;
-
+	 margin-left:3px;
+	 margin-top:17px;
+	 width:42px;
  }
 	.wrap{
 		width:90%;
@@ -3063,17 +3190,17 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 /*** Header ****/
 	.logo{
 		float:inherit;
-		width:100%;
+		width:100% !important;
 		text-align:center;
 	}
 	.header_top_right {
 		float:inherit;
-		width:100%;
+		width:100% !important;
 		margin-top:20px;
 	}
 	.search_box {
 		float:inherit;
-		width:100%;
+		width:auto !important;
 	}
 	.search_box form input[type="text"] {
 		width:77.5%;
@@ -3083,23 +3210,28 @@ ul.sub-menu.list-unstyled.sub-menu3 {
     	width:18.5%;
 			/* height: auto !important; */
     }
-    .shopping_cart {
-    	width:16.5%;
-    }
-    .shopping_cart{
-    	width:55.55%;
-    	margin-left:0px;
-    	margin-top:8px;
-    }
-    .wrapper-dropdown{
-    	margin-left:5px;
-    	margin-top:8px;
-    	width:52px;
-    }
-   .login{
-    	margin-left:5px;
-    	margin-top:8px;
-    }
+		.shopping_cart{
+			margin-left: 0px !important;
+			width: 120px !important;
+		}
+		.cart_title{
+			display: none;
+		}
+		.wrapper-dropdown{
+		 margin-left:3px;
+		 margin-top:17px;
+		 width:45px;
+	 }
+	 .login{
+		 margin-left:3px;
+		 margin-top:17px;
+		 width:42px;
+
+	 }
+
+
+
+
     .list_2_of_1 .button a {
     	padding:5px 10px;
     }
@@ -3585,11 +3717,17 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 	width: auto ;
 	float: right ;
 	font-size: 1em ;
-	margin-bottom: 15px;
+	/* margin-bottom: 15px; */
 }
-
-.login_info div{
+.login_info{
+	height: 20px;
+	margin-top: -30px;
+	margin-left: -30px;
+	margin-bottom: 20px;
 	float: right;
+}
+.login_info div{
+	height: 30px;
 }
 
 .login_text {

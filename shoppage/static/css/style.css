@@ -622,7 +622,7 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 }
 .list_2_of_1  h2 a{
 	color:#CC3636;
-	font-size:0.7em;
+	font-size:0.52em;
 	font-family: 'Monda', sans-serif;
 	font-weight : normal;
 	text-transform:uppercase;
@@ -832,7 +832,9 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 }
 .images_1_of_4 .button a:hover{
      color:#70389C;
-     background: #E8E8E8;
+		 /* background: #daa520 ; */
+		 background-image: linear-gradient(rgba(255, 244, 0, 0.1), #ffc844, rgba(255, 244, 0, 0.1));
+     /* background: #E8E8E8; */
 }
 .images_1_of_4 .button span img{
 	position:absolute;
@@ -3016,19 +3018,25 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 /* ______________________ NEW CUSTOM STYLE_KHOA_________________________ */
 
 .logout_text {
-	width: 180px ;
+	width: auto ;
 	float: right ;
-	font-size: 10px ;
-}
-.logout_text a{
-	font-size: 10px;
+	font-size: 1em ;
+	margin-bottom: 15px;
 }
 
-#login_text {
-	z-index: 9999;
-	width: 370px !important;
+.login_info div{
+	float: right;
+}
+
+.login_text {
+	width: auto !important;
 	float: right !important;
-	font-size: 15px !important;
+	font-size: 1em ;
+	padding-bottom: 15px;
+}
+
+.login_text : child{
+	float: right !important;
 }
 
 

@@ -44,103 +44,59 @@
         	</div>
     	      <div class="section group">
               {% for prod in prod_in_type %}
-        				<div class="grid_1_of_4 images_1_of_4">
-        					 <a href="{% url 'basic_app:detail_sub'%}{{prod.id_url.url}}">
-                     <img src=" {% get_static_prefix %}images/products-images/{{prod.image}}" alt="" />
-                   </a>
-        					 <h2>{{prod.name}} </h2>
-        					 <p>{{prod.detail}}</p>
+
+
+
+                <div class="grid_1_of_4 images_1_of_4">
+                   <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}"><img src=" {% get_static_prefix %}images/products-images/{{prod.image}}" /></a>
+                   <!-- <div class="discount">
+                      <span class="percentage">?%</span>
+                    </div> -->
+                   <div  class="title" href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">
+                     <div class="">
+                       <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">{{prod.name}}</a>
+                     </div>
+                   </div>
+                   <!-- <div class="description_text">
+                     {{prod.detail}}
+                   </div> -->
                    <hr>
-                     {% if prod.promotion_price %}
-            					 <p>
-                         <span class="strike">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                         <span class="price">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
-                       </p>
-                      {% else %}
-                      <p>
-                        <span class="price">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                      </p>
-                      {% endif %}
+                   <p class="col-12 row price">
+                         {% if prod.promotion_price %}
+                             <span class="strike col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                             <span class="price col-12">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
+                          {% else %}
+                              <span class="price col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                          {% endif %}
+                    </p>
                     <hr>
 
-                      <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
-                        <span>
-                          <!-- <img src=" {% static "images/cart.jpg"  %} " alt="" /> -->
-                          <a class="cart-button">Add to Cart</a>
-                        </span>
-                      </div>        				     <div class="button"><span><a href="{% url 'basic_app:detail_sub'%}{{prod.id_url.url}}" class="details">Details</a></span></div>
-        				</div>
+
+                        <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
+                          <span>
+                            <!-- <img src=" {% static "images/cart.jpg"  %} " alt="" /> -->
+                            <a class="cart-button btn btn-primary ">Add to Cart
+                            </a>
+                          </span>
+                        </div>
+                         <div class="button">
+                           <span>
+                             <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}" class="details">Details</a>
+                           </span>
+                         </div>
+                </div>
+
+
+
               {% endfor %}
     			</div>
-    			<div class="content_bottom">
-        		<div class="heading">
-        		<h3>New Products</h3>
-        		</div>
-        		<div class="sort">
-        		<p>Sort by:
-        			<select>
-        				<option>Lowest Price</option>
-        				<option>Highest Price</option>
-        				<option>Lowest Price</option>
-        				<option>Lowest Price</option>
-        				<option>Lowest Price</option>
-        				<option>In Stock</option>
-        			</select>
-        		</p>
-        		</div>
-        		<div class="show">
-        		<p>Show:
-        			<select>
-        				<option>4</option>
-        				<option>8</option>
-        				<option>12</option>
-        				<option>16</option>
-        				<option>20</option>
-        				<option>In Stock</option>
-        			</select>
-        		</p>
-        		</div>
-        		<div class="page-no">
-        			<p>Result Pages:<ul>
-        				<li><a href="#">1</a></li>
-        				<li class="active"><a href="#">2</a></li>
-        				<li><a href="#">3</a></li>
-        				<li>[<a href="#"> Next>>></a >]</li>
-        				</ul></p>
-        		</div>
-        		<div class="clear"></div>
-        	</div>
+
+
+
     			<div class="section group">
-          {% for prod in prod_in_type %}
-    				<div class="grid_1_of_4 images_1_of_4">
-    					 <a href="{% url 'basic_app:detail_sub'%}{{prod.id_url.url}}"><img src=" {% get_static_prefix %}images/products-images/{{prod.image}}" alt="" /></a>
-               {% if prod.promotion_price %}
-    					     <div class="discount">
-                      <span class="percentage">?%</span>
-    					      </div>
-              {% endif%}
-    					 <h2>{{prod.name}}</h2>
-               <p>{{prod.detail}}</p>
-               <hr>
-    					 <p>
-                  {% if prod.promotion_price %}
-                     <span class="strike">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                     <span class="price">{{prod.promotion_price|floatformat:0 | intcomma}}</span>
-                  {% else %}
-                    <span class="price">{{prod.price|floatformat:0 | intcomma}}₫</span>
-                  {% endif %}
-               </p>
-               <hr>
-               <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
-                 <span>
-                   <!-- <img src=" {% static "images/cart.jpg"  %} " alt="" /> -->
-                   <a class="cart-button">Add to Cart
-                   </a>
-                 </span>
-               </div>
-    				     <div class="button"><span><a href="{% url 'basic_app:detail_sub'%}{{prod.id_url.url}}" class="details">Details</a></span></div>
-    				</div>
-          {% endfor %}
+
+
+
     			</div>
         </div>
      </div>

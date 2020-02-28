@@ -379,27 +379,48 @@ def checkout_confirm(request,token):
     context = {}
     token_flag = 0
     list_token = Bills.objects.values('token')
-    pprint(list_token)
+    # pprint(list_token)
     token_dict = {'token':token}
 
 
     if token_dict in list_token:
         token_flag = 1
-        print('token : ',token_dict['token'])
-
-    if token_flag: # == token_session:
-        Bill = Bills.objects.get(token = token)
-        Bill.status = 1
-        Bill.save()
-        delete_all_product(request)
+        # print('token : ',token_dict['token'])
+    else:
         context = {
-                    'confirm': ' your order is confirmed',
-                    'thank_you': 'Thank you for shopping',
+
+                    'confirm' : 'wrong token, failed to verify your order!',
+                    'thank_you': 'please make order again!',
                     'cart': get_cart_session(request),
                     'cat_names':get_hearder_footer_data()['prod_type'],
                     }
         return render(request,'basic_app/checkout_confirm.html',context)
+
+    if token_flag: # == token_session:
+        Bill = Bills.objects.get(token = token)
+        if Bill.status:
+            print('status:',Bill.status)
+            context = {
+                        'confirm' : 'You have already verified this order!',
+                        'thank_you': 'thank you',
+                        'cart': get_cart_session(request),
+                        'cat_names':get_hearder_footer_data()['prod_type'],
+                        }
+            return render(request,'basic_app/checkout_confirm.html',context)
+        else:
+            Bill.status = 1
+            Bill.save()
+            delete_all_product(request)
+
+            context = {
+                        'confirm': ' your order is confirmed',
+                        'thank_you': 'Thank you for shopping',
+                        'cart': get_cart_session(request),
+                        'cat_names':get_hearder_footer_data()['prod_type'],
+                        }
+            return render(request,'basic_app/checkout_confirm.html',context)
     else:
+        print('token is not in list_token of database!')
         context = {
 
                     'confirm' : 'failed to verify your order!',
@@ -428,7 +449,7 @@ def checkout(request):
             phone = data['phone']
             gender =  data['gender']
             cart = get_cart_session(request)
-            pprint(cart)
+            # pprint(cart)
 
             ### insert to Customers Model
             Customer = Customers.objects.create(
@@ -439,7 +460,7 @@ def checkout(request):
                             phone = phone,
                         )
             id_customer = Customers.objects.latest()
-            print('id_customer =',id_customer.id)
+            # print('id_customer =',id_customer.id)
 
             # pprint(cart)
             token = get_random_string(32)+'_time_'+str(timezone.now()) # +'_token_'+str(uuid.uuid4())
@@ -458,7 +479,7 @@ def checkout(request):
                         status = 0,
                     )
             id_bill = Bills.objects.latest()
-            print('id_bill= ',id_bill.id)
+            # print('id_bill= ',id_bill.id)
 
                 # insert to Customers Model
             cart_items = cart['items']
@@ -471,12 +492,17 @@ def checkout(request):
                         discount_price = cart_items[id]['item'].promotion_price,
                         )
                 id_bill_detail = BillDetail.objects.latest().id
-                print(id_bill_detail)
+                # print(id_bill_detail)
 
             subject,from_mail = " Shopping order comfirmation ",'bluenight0104@gmail.com',
             html_message = render_to_string('mail_template.html',{'token':token})
             plain_message = strip_tags(html_message)
+            try:
+                pass
+            except Exception as e:
+                raise
             mail.send_mail(subject,plain_message,from_mail,[email],html_message=html_message)
+
             success = True
             context = {
                         'success' : success,

@@ -1,3 +1,0 @@
-# AUTH_PASSWORD_VALIDATORS = []
-#
-# SECRET_KEY = []

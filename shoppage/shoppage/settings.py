@@ -85,39 +85,19 @@ WSGI_APPLICATION = 'shoppage.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-                        'default': {    # pythonanywhere
-                                    'ENGINE': 'django.db.backends.mysql',
-                                    'OPTIONS': {
-                                                'read_default_file': '/path/to/my.cnf',
-                                                },
-                                    'NAME': 'khoaphamdev$shoppage',
-                                    'USER': 'khoaphamdev',
-                                    'PASSWORD': 'shop_page',
-                                    'HOST': 'khoaphamdev.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
-                                    },
+                'default': {    # pythonanywhere
+                            'ENGINE': 'django.db.backends.mysql',
+                            'OPTIONS': {
+                                        'read_default_file': '/path/to/my.cnf',
+                                        },
+                            'NAME': 'khoaphamdev$shoppage',
+                            'USER': 'khoaphamdev',
+                            'PASSWORD': 'shop_page',
+                            'HOST': 'khoaphamdev.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
+                            },
 
-                        # 'default': {
-                        #             'ENGINE': 'django.db.backends.mysql',
-                        #             'OPTIONS': {
-                        #                         'read_default_file': '/path/to/my.cnf',
-                        #                         },
-                        #             'NAME': 'shop_page',
-                        #             'USER': 'root',
-                        #             'PASSWORD': '',
-                        #             'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-                        #             'PORT': '3306',
-                        #             }
+
             }
-#test
-
-
-
-
-
-
-
-
-
 
 # [client]
 # database = NAME
@@ -184,9 +164,13 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 
 # DEFAULT_FROM_EMAIL ='bluenight0105@gmail.com'
-
     # CUSTOM FILE settings.py
-# try:
-#     from  shoppage.local_settings import *
-# except ImportError:
-#     pass
+
+import sys
+x = "C:/Users/Lilti/Documents/Python/Python_ATOM/Django/django_shop_page(_GIT_)/"
+sys.path.append(os.path.abspath(x))
+try:
+    from local_settings import *
+except ImportError:
+    print('error found!')
+    pass

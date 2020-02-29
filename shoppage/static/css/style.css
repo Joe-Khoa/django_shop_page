@@ -82,7 +82,7 @@ body{
 	color:#FFF;
 	font-size:12px;
 	padding:10px 15px;
-	height: 36px;
+	height: 100% !important;
 	margin:0;
 	background: -webkit-gradient(linear,left top,left bottom,from(#70389C),to(#602D8D));
 	background: -moz-linear-gradient(top,#70389C,#602D8D);
@@ -164,8 +164,14 @@ body{
 	box-sizing: border-box;
 	background: url(../images/gradient_light-1.png) 0 0 repeat-x;
 }
-.login span a img{
-	padding-top: 4px;
+.login_href{
+	height: 100% !important;
+	vertical-align: middle !important;
+}
+.login_icon{
+	padding-top: 3px;
+	height: 20px !important;
+	vertical-align: middle !important;
 }
 /*** Login ***/
 .register_account h3,.login_panel h3{
@@ -433,6 +439,7 @@ ul.menu.list-unstyled li a:hover {
     background: -moz-linear-gradient(top,#70389C,#602D8D);
     background: -o-linear-gradient(top,#70389C,#602D8D);
     background: -ms-linear-gradient(top,#70389C,#602D8D);
+
 }
 nav{
 	display:block;
@@ -1736,7 +1743,7 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 			/* margin-bottom: 0px !important; */
 		}
 		.login_info div{
-			margin-bottom: 20px !important;
+			margin-bottom: 0px !important;
 			padding: 0px;
 			float: right !important;
 		}
@@ -3758,7 +3765,7 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 	height: 20px;
 	margin-top: -30px;
 	margin-left: -30px;
-	margin-bottom: 20px;
+	/* margin-bottom: 20px; */
 	float: right;
 }
 .login_info div{

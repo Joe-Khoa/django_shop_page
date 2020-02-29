@@ -168,11 +168,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</script>
    </div>
 		   <div class="login">
-		   	   <span><a href="{% url "login" %}">
+		   	   <span><a class="login_href" href="{% url "login" %}" style='vertical-align: middle !important;'>
              {% if user.is_authenticated%}
-                <img   src=" {% static "images/users/logged_in.png" %} " alt="" title="login"/></a>
+                <img class="login_icon"   src=" {% static "images/users/logged_in.png" %} " alt="" title="login"/></a>
               {% else %}
-                <img  style= "max-width:30px important; padding-top:0px important;" src=" {% static "images/login.png" %} " alt="" title="login"/></a>
+                <img class="login_icon"  style= "max-width:30px important; padding-top:0px important;" src=" {% static "images/login.png" %} " alt="" title="login"/></a>
              {% endif %}
            </span>
 
@@ -183,7 +183,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
  </div>
   <div class="login_info" >
       <div class="d-flex flex-row-reverse col-md-12 col-sm-12 col-12" >
-            <div class="mr-5 mb-4" >
+            <div class="mr-5" >
               {% if user.is_authenticated %}
                  <div class = "login_text" >
                    {{user.username}} |

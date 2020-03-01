@@ -21,7 +21,6 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
     # date_time
 from django.utils import timezone
-
 # Create your views here.
 def get_hearder_footer_data():
     data = {}

@@ -98,6 +98,16 @@ DATABASES = {
 
 
             }
+#test
+
+
+
+
+
+
+
+
+
 
 # [client]
 # database = NAME
@@ -129,7 +139,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
+
 
 USE_I18N = True
 
@@ -167,7 +178,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
     # CUSTOM FILE settings.py
 
 import sys
-x = "C:/Users/Lilti/Documents/Python/Python_ATOM/Django/django_shop_page(_GIT_)/"
+x = "C:/Users/Lilti/Documents/Python/Python_ATOM/Django/"
 sys.path.append(os.path.abspath(x))
 try:
     from local_settings import *

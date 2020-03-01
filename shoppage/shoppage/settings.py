@@ -139,13 +139,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-# USE_TZ = True
-TIME_ZONE = 'Asia/Hanoi'
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
 
 USE_I18N = True
 
 USE_L10N = True
+
+# USE_TZ = True
 
 # test
 # from django.utils import timezone

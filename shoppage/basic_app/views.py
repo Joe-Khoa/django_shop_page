@@ -21,6 +21,10 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
     # date_time
 from django.utils import timezone
+import pytz
+
+timezone.activate(pytz.timezone("Asia/Ho_Chi_Minh"))
+
 # Create your views here.
 def get_hearder_footer_data():
     data = {}
@@ -43,6 +47,7 @@ def detail(request,prod):
 
 
 def index(request):
+    print(timezone.now())
     context = {}
     featured_obj  = Products.objects.filter(status = 1)
     new_obj = Products.objects.filter(new = 1)

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     # 'bootstrap',
     # 'fontawesome',
+
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.AutoLogout',
+
 ]
 
 ROOT_URLCONF = 'shoppage.urls'
@@ -145,6 +148,11 @@ TIME_ZONE = 'Asia/Ho_Chi_Minh'
 USE_I18N = True
 
 USE_L10N = True
+
+SESSION_COOKIE_AGE  = 5*60
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+AUTO_LOGOUT_DELAY = 10 #equivalent to 5 minutes
 
 # USE_TZ = True
 

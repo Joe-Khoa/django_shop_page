@@ -146,6 +146,7 @@ TIME_ZONE = 'Asia/Hanoi'
 USE_I18N = True
 
 USE_L10N = True
+
 # test
 # from django.utils import timezone
 # print(timezone.now())

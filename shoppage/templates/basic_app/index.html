@@ -124,8 +124,8 @@
                   <div class="row div_price_container">
                      <p class="col-12 row price align-items-center">
                            {% if prod.promotion_price %}
-                              <span class="strike ">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                               <span class="price_child ">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
+                              <span class="strike col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                               <span class="price_child col-12 ">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
                             {% else %}
                                 <span class="price_child col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
                             {% endif %}
@@ -209,8 +209,8 @@
                      <div class="row div_price_container">
                         <p class="col-12 row price align-items-center">
                               {% if prod.promotion_price %}
-                                 <span class="strike ">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                                  <span class="price_child ">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
+                                 <span class="strike col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                                  <span class="price_child col-12">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
                                {% else %}
                                    <span class="price_child col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
                                {% endif %}

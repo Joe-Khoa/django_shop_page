@@ -112,25 +112,26 @@
             {% for prod in featured_prods %}
       				<div class="grid_1_of_4 images_1_of_4">
       					 <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}"><img src=" {% get_static_prefix %}images/products-images/{{prod.image}}" /></a>
-      					 <div  class="title" href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">
+      					 <div  class="title" href="{% url "basic_app:detail_sub" %}{{ prod.id_url.url}}">
                    <div class="">
-                     <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">{{prod.name}}</a>
+                     <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">{{ prod.name|truncatechars:20 }}</a>
                    </div>
                  </div>
       					 <!-- <div class="description_text">
                    {{prod.detail}}
                  </div> -->
-                 <hr>
-                 <p class="col-12 row price">
-                       {% if prod.promotion_price %}
-                           <span class="strike col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                           <span class="price col-12">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
-                        {% else %}
-                            <span class="price col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                        {% endif %}
-                  </p>
-                  <hr>
-
+                  <hr class="hr_margin">
+                  <div class="row div_price_container">
+                     <p class="col-12 row price align-items-center">
+                           {% if prod.promotion_price %}
+                              <span class="strike ">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                               <span class="price_child ">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
+                            {% else %}
+                                <span class="price_child col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                            {% endif %}
+                      </p>
+                    </div>
+                  <hr class="hr_margin">
 
           					  <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
                         <span>
@@ -198,24 +199,24 @@
                     </div>
                      <div  class="title" href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">
                        <div class="">
-                         <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">{{prod.name}}</a>
+                         <a href="{% url "basic_app:detail_sub" %}{{prod.id_url.url}}">{{prod.name|truncatechars:20}}</a>
                        </div>
                      </div>
                      <!-- <div class="description_text">
                        {{prod.detail}}
                      </div> -->
-                     <hr>
-                     <p class="col-12 row price">
-                           {% if prod.promotion_price %}
-                               <span class="strike col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                               <span class="price col-12">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
-                            {% else %}
-                                <span class="price col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
-                            {% endif %}
-                      </p>
-                      <hr>
-
-
+                     <hr class="hr_margin">
+                     <div class="row div_price_container">
+                        <p class="col-12 row price align-items-center">
+                              {% if prod.promotion_price %}
+                                 <span class="strike ">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                                  <span class="price_child ">{{prod.promotion_price|floatformat:0 | intcomma }}₫</span>
+                               {% else %}
+                                   <span class="price_child col-12">{{prod.price|floatformat:0 | intcomma }}₫</span>
+                               {% endif %}
+                         </p>
+                       </div>
+                      <hr class="hr_margin">
                           <div class="button cart_button" id = "{{prod.id}}" data-id="{{prod.id}}">
                             <span>
                               <!-- <img src=" {% static "images/cart.jpg"  %} " alt="" /> -->

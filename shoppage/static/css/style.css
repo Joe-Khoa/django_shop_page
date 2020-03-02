@@ -1964,6 +1964,9 @@ ul.sub-menu.list-unstyled.sub-menu3 {
     .sort, .show {
     	width:24%;
     }
+		/* .section {
+			width:100%;
+		} */
     .header_bottom_left,.header_bottom_right_images{
     	float:inherit;
     	width:100%;
@@ -2519,7 +2522,7 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 		margin: 2% 0 2% 0%;
 	}
 	.images_1_of_4 {
-		width:99.8%;
+		width:100%;
 		padding:3%;
 	}
   /** contact-form **/
@@ -3101,7 +3104,7 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 		margin: 2% 0 2% 0%;
 	}
 	.images_1_of_4 {
-		width:94%;
+		width:100%;
 		padding:3%;
 	}
   /** contact-form **/
@@ -3524,7 +3527,7 @@ ul.sub-menu.list-unstyled.sub-menu3 {
 		margin:0% 0 0% 0%;
 	}
 	.images_1_of_4 {
-		width:95%;
+		width:100%;
 		padding:2.5%;
 	}
 }

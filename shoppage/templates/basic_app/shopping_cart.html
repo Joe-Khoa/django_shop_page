@@ -150,7 +150,7 @@
 
 									<div class=" pull-right">
 										<div class="cart-totals-row"><h5 class="cart-total-title">Cart Totals</h5></div>
-										{% if cart.total_promt_price %}
+										{% if cart.total_promt_price != cart.total_price %}
 													<div class="cart-totals-row">
 														<span>Cart Price:</span>
 														<span class="cart_price cart_price_sum">{{cart.total_price | floatformat:0 | intcomma }}₫</span>
@@ -163,7 +163,7 @@
 											{% else %}
 													<div class="cart-totals-row">
 														<span>Cart Price:</span>
-														<span class="cart_price cart_price_sum">{{cart.total_price | floatformat:0 | intcomma }}₫</span>
+														<span class="cart_promotion_price_sum">{{cart.total_promt_price | floatformat:0 | intcomma }}₫</span>
 													</div>
 											{% endif %}
 

@@ -131,6 +131,7 @@ def preview(request):
 
 
 def cart(request):
+    # pprint(get_cart_session(request))
     if request.is_ajax():
         action = request.GET.get('action')
         if action == 'add':
@@ -219,6 +220,8 @@ def add_cart(request):
         # pprint(cart_obj.cart)
         # print('\n'*2)
         request.session['cart_'] = cart_obj.cart
+        print('line-233')
+        print(cart_obj.cart)
 
         data = {
             'success_': True,
@@ -256,7 +259,10 @@ class cart_class:
         self.cart['items'][id] = cur_prod_cart # Assing value
         self.cart['total_qty'] += qty
         self.cart['total_price'] += qty*prod.price
-        self.cart['total_promt_price'] += qty*prod.promotion_price
+        if not prod.promotion_price:
+            self.cart['total_promt_price'] += qty*prod.price
+        else:
+            self.cart['total_promt_price'] += qty*prod.promotion_price
     def remove_a_prod(self,prod):
         id = str(prod.id)
         self.cart['total_qty'] -= self.cart['items'][id]['qty']
@@ -283,7 +289,10 @@ class cart_class:
                 actual_qty = qty - old_qty
                 self.cart['total_qty'] += actual_qty
                 self.cart['total_price'] += actual_qty*prod.price
-                self.cart['total_promt_price'] += actual_qty*prod.promotion_price
+                if not prod.promotion_price:
+                    self.cart['total_promt_price'] += actual_qty*prod.price
+                else:
+                    self.cart['total_promt_price'] += actual_qty*prod.promotion_price
 
 
 def delete_a_product(request):
@@ -316,6 +325,7 @@ def delete_a_product(request):
 
 def delete_all_product(request):
     request.session['cart_'] = {}
+    print(request.session['cart_'])
     data = {
         'success': True,
         'message': 'delete all product',

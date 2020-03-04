@@ -265,9 +265,14 @@ class cart_class:
             self.cart['total_promt_price'] += qty*prod.promotion_price
     def remove_a_prod(self,prod):
         id = str(prod.id)
+        prod
         self.cart['total_qty'] -= self.cart['items'][id]['qty']
         self.cart['total_price'] -= self.cart['items'][id]['price']
-        self.cart['total_promt_price'] -= self.cart['items'][id]['promt_price']
+        if prod.promotion_price:
+            self.cart['total_promt_price'] -= self.cart['items'][id]['promt_price']
+        else:
+            self.cart['total_promt_price'] -= self.cart['items'][id]['price']
+
         self.cart['items'].pop(id)
 
 

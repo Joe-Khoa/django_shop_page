@@ -101,10 +101,21 @@ DATABASES = {
 
 
             }
-#test
+# DATABASES = {
+#              'default': {    # pythonanywhere
+#                          'ENGINE': 'django.db.backends.mysql',
+#                          'NAME': 'shop_page',
+#                          'USER': 'root',
+#                          'PASSWORD': '',
+#                          'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+#                          },
+#          }
 
-
-
+try:
+    from shoppage.local_settings import *
+except ImportError:
+    print( 'local database import wrong!')
+    pass
 
 
 
@@ -187,12 +198,12 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # DEFAULT_FROM_EMAIL ='bluenight0105@gmail.com'
     # CUSTOM FILE settings.py
-
-import sys
-x = "C:/Users/Lilti/Documents/Python/Python_ATOM/Django/"
-sys.path.append(os.path.abspath(x))
-try:
-    from local_settings import *
-except ImportError:
-    print('error found!')
-    pass
+#
+# import sys
+# # x = "C:/Users/Lilti/Documents/Python/Python_ATOM/Django/"
+# # sys.path.append(os.path.abspath(x))
+# try:
+#     from local_settings import *
+# except ImportError:
+#     print( 'local database import wrong!')
+#     pass

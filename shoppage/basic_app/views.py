@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse,JsonResponse
+from django.http import HttpResponse,JsonResponse, Http404
 from basic_app.forms import Customers_form
 from basic_app.models import ( Products,Categories,PageUrl,
                             Bills,BillDetail,Customers)
@@ -21,6 +21,8 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
     # date_time
 from django.utils import timezone
+from django.contrib.sites.shortcuts import get_current_site
+
 import pytz
 
 timezone.activate(pytz.timezone("Asia/Ho_Chi_Minh"))
@@ -456,11 +458,25 @@ def checkout(request):
     bills = {}
     customers_model = {}
     bill_detail = {}
+
     if request.method == 'POST':
+
+
         form = Customers_form(request.POST)
         if form.is_valid():
+            try :
+                if not bool(request.session['cart_']):
+                    raise Http404('no product chosen')
+            except:
+                print(request.build_absolute_uri())
+                print(request.get_host())
+                print(get_current_site(request))
+
+
+                raise Http404('no product chosen')
 
             ### get data
+            uri = request.build_absolute_uri()
             data = form.cleaned_data
             name = data['name']
             email = data['email']
@@ -514,7 +530,7 @@ def checkout(request):
                 # print(id_bill_detail)
 
             subject,from_mail = " Shopping order comfirmation ",'bluenight0104@gmail.com',
-            html_message = render_to_string('mail_template.html',{'token':token})
+            html_message = render_to_string('mail_template.html',{'token':token,'uri':uri})
             plain_message = strip_tags(html_message)
             try:
                 pass
